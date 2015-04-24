@@ -1,0 +1,441 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CB4599061AEA642D0043A978 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4599051AEA642D0043A978 /* AppDelegate.swift */; };
+		CB4599091AEA642D0043A978 /* BmobSync.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CB4599071AEA642D0043A978 /* BmobSync.xcdatamodeld */; };
+		CB45990B1AEA642D0043A978 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB45990A1AEA642D0043A978 /* ViewController.swift */; };
+		CB45990E1AEA642D0043A978 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB45990C1AEA642D0043A978 /* Main.storyboard */; };
+		CB4599101AEA642D0043A978 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB45990F1AEA642D0043A978 /* Images.xcassets */; };
+		CB4599131AEA642D0043A978 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB4599111AEA642D0043A978 /* LaunchScreen.xib */; };
+		CB45991F1AEA642E0043A978 /* BmobSyncTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB45991E1AEA642E0043A978 /* BmobSyncTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CB4599191AEA642E0043A978 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CB4598F81AEA642D0043A978 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CB4598FF1AEA642D0043A978;
+			remoteInfo = BmobSync;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		CB4599001AEA642D0043A978 /* BmobSync.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BmobSync.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB4599041AEA642D0043A978 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CB4599051AEA642D0043A978 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		CB4599081AEA642D0043A978 /* BmobSync.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BmobSync.xcdatamodel; sourceTree = "<group>"; };
+		CB45990A1AEA642D0043A978 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CB45990D1AEA642D0043A978 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CB45990F1AEA642D0043A978 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		CB4599121AEA642D0043A978 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		CB4599181AEA642E0043A978 /* BmobSyncTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BmobSyncTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB45991D1AEA642E0043A978 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CB45991E1AEA642E0043A978 /* BmobSyncTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BmobSyncTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CB4598FD1AEA642D0043A978 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CB4599151AEA642E0043A978 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CB4598F71AEA642D0043A978 = {
+			isa = PBXGroup;
+			children = (
+				CB4599021AEA642D0043A978 /* BmobSync */,
+				CB45991B1AEA642E0043A978 /* BmobSyncTests */,
+				CB4599011AEA642D0043A978 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CB4599011AEA642D0043A978 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CB4599001AEA642D0043A978 /* BmobSync.app */,
+				CB4599181AEA642E0043A978 /* BmobSyncTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CB4599021AEA642D0043A978 /* BmobSync */ = {
+			isa = PBXGroup;
+			children = (
+				CB4599051AEA642D0043A978 /* AppDelegate.swift */,
+				CB45990A1AEA642D0043A978 /* ViewController.swift */,
+				CB45990C1AEA642D0043A978 /* Main.storyboard */,
+				CB45990F1AEA642D0043A978 /* Images.xcassets */,
+				CB4599111AEA642D0043A978 /* LaunchScreen.xib */,
+				CB4599071AEA642D0043A978 /* BmobSync.xcdatamodeld */,
+				CB4599031AEA642D0043A978 /* Supporting Files */,
+			);
+			path = BmobSync;
+			sourceTree = "<group>";
+		};
+		CB4599031AEA642D0043A978 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CB4599041AEA642D0043A978 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CB45991B1AEA642E0043A978 /* BmobSyncTests */ = {
+			isa = PBXGroup;
+			children = (
+				CB45991E1AEA642E0043A978 /* BmobSyncTests.swift */,
+				CB45991C1AEA642E0043A978 /* Supporting Files */,
+			);
+			path = BmobSyncTests;
+			sourceTree = "<group>";
+		};
+		CB45991C1AEA642E0043A978 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CB45991D1AEA642E0043A978 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CB4598FF1AEA642D0043A978 /* BmobSync */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CB4599221AEA642E0043A978 /* Build configuration list for PBXNativeTarget "BmobSync" */;
+			buildPhases = (
+				CB4598FC1AEA642D0043A978 /* Sources */,
+				CB4598FD1AEA642D0043A978 /* Frameworks */,
+				CB4598FE1AEA642D0043A978 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BmobSync;
+			productName = BmobSync;
+			productReference = CB4599001AEA642D0043A978 /* BmobSync.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CB4599171AEA642E0043A978 /* BmobSyncTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CB4599251AEA642E0043A978 /* Build configuration list for PBXNativeTarget "BmobSyncTests" */;
+			buildPhases = (
+				CB4599141AEA642E0043A978 /* Sources */,
+				CB4599151AEA642E0043A978 /* Frameworks */,
+				CB4599161AEA642E0043A978 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CB45991A1AEA642E0043A978 /* PBXTargetDependency */,
+			);
+			name = BmobSyncTests;
+			productName = BmobSyncTests;
+			productReference = CB4599181AEA642E0043A978 /* BmobSyncTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CB4598F81AEA642D0043A978 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = HuCharlie;
+				TargetAttributes = {
+					CB4598FF1AEA642D0043A978 = {
+						CreatedOnToolsVersion = 6.3;
+					};
+					CB4599171AEA642E0043A978 = {
+						CreatedOnToolsVersion = 6.3;
+						TestTargetID = CB4598FF1AEA642D0043A978;
+					};
+				};
+			};
+			buildConfigurationList = CB4598FB1AEA642D0043A978 /* Build configuration list for PBXProject "BmobSync" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CB4598F71AEA642D0043A978;
+			productRefGroup = CB4599011AEA642D0043A978 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CB4598FF1AEA642D0043A978 /* BmobSync */,
+				CB4599171AEA642E0043A978 /* BmobSyncTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CB4598FE1AEA642D0043A978 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CB45990E1AEA642D0043A978 /* Main.storyboard in Resources */,
+				CB4599131AEA642D0043A978 /* LaunchScreen.xib in Resources */,
+				CB4599101AEA642D0043A978 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CB4599161AEA642E0043A978 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CB4598FC1AEA642D0043A978 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CB45990B1AEA642D0043A978 /* ViewController.swift in Sources */,
+				CB4599091AEA642D0043A978 /* BmobSync.xcdatamodeld in Sources */,
+				CB4599061AEA642D0043A978 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CB4599141AEA642E0043A978 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CB45991F1AEA642E0043A978 /* BmobSyncTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CB45991A1AEA642E0043A978 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CB4598FF1AEA642D0043A978 /* BmobSync */;
+			targetProxy = CB4599191AEA642E0043A978 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		CB45990C1AEA642D0043A978 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CB45990D1AEA642D0043A978 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		CB4599111AEA642D0043A978 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CB4599121AEA642D0043A978 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CB4599201AEA642E0043A978 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		CB4599211AEA642E0043A978 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CB4599231AEA642E0043A978 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = BmobSync/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		CB4599241AEA642E0043A978 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = BmobSync/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		CB4599261AEA642E0043A978 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = BmobSyncTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BmobSync.app/BmobSync";
+			};
+			name = Debug;
+		};
+		CB4599271AEA642E0043A978 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = BmobSyncTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BmobSync.app/BmobSync";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CB4598FB1AEA642D0043A978 /* Build configuration list for PBXProject "BmobSync" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CB4599201AEA642E0043A978 /* Debug */,
+				CB4599211AEA642E0043A978 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CB4599221AEA642E0043A978 /* Build configuration list for PBXNativeTarget "BmobSync" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CB4599231AEA642E0043A978 /* Debug */,
+				CB4599241AEA642E0043A978 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		CB4599251AEA642E0043A978 /* Build configuration list for PBXNativeTarget "BmobSyncTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CB4599261AEA642E0043A978 /* Debug */,
+				CB4599271AEA642E0043A978 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		CB4599071AEA642D0043A978 /* BmobSync.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				CB4599081AEA642D0043A978 /* BmobSync.xcdatamodel */,
+			);
+			currentVersion = CB4599081AEA642D0043A978 /* BmobSync.xcdatamodel */;
+			path = BmobSync.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = CB4598F81AEA642D0043A978 /* Project object */;
+}
