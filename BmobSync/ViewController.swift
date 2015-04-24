@@ -15,10 +15,7 @@ class ViewController: UIViewController {
         
         
         
-        var NewsTimelineData:NSMutableArray = NSMutableArray()
-        
-        let moc:NSManagedObjectContext = SwiftCoreDataHelper.managedObjectContext()
-        var NewsTimeline:News = SwiftCoreDataHelper.insertManagedObjectOfClass(NSStringFromClass(News), inManagedObjectContext: moc)as! News
+
         
         
         

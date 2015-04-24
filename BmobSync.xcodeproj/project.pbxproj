@@ -18,6 +18,8 @@
 		CB4599321AEA65DE0043A978 /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4599311AEA65DE0043A978 /* Company.swift */; };
 		CB4599341AEA65DE0043A978 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4599331AEA65DE0043A978 /* User.swift */; };
 		CB4599381AEA66590043A978 /* SwiftCoreDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = CB4599371AEA66590043A978 /* SwiftCoreDataHelper.m */; };
+		CB45993A1AEA67D80043A978 /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4599391AEA67D80043A978 /* ListTableViewCell.swift */; };
+		CB45993C1AEA67E60043A978 /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB45993B1AEA67E60043A978 /* ListTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +50,8 @@
 		CB4599351AEA66580043A978 /* BmobSync-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BmobSync-Bridging-Header.h"; sourceTree = "<group>"; };
 		CB4599361AEA66590043A978 /* SwiftCoreDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwiftCoreDataHelper.h; sourceTree = "<group>"; };
 		CB4599371AEA66590043A978 /* SwiftCoreDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwiftCoreDataHelper.m; sourceTree = "<group>"; };
+		CB4599391AEA67D80043A978 /* ListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
+		CB45993B1AEA67E60043A978 /* ListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,8 +93,9 @@
 		CB4599021AEA642D0043A978 /* BmobSync */ = {
 			isa = PBXGroup;
 			children = (
-				CB4599361AEA66590043A978 /* SwiftCoreDataHelper.h */,
-				CB4599371AEA66590043A978 /* SwiftCoreDataHelper.m */,
+				CB45993D1AEA67ED0043A978 /* Helper Class */,
+				CB4599391AEA67D80043A978 /* ListTableViewCell.swift */,
+				CB45993B1AEA67E60043A978 /* ListTableViewController.swift */,
 				CB4599051AEA642D0043A978 /* AppDelegate.swift */,
 				CB45990A1AEA642D0043A978 /* ViewController.swift */,
 				CB45990C1AEA642D0043A978 /* Main.storyboard */,
@@ -137,6 +142,15 @@
 				CB45992F1AEA65DD0043A978 /* News.swift */,
 			);
 			name = "Data Model";
+			sourceTree = "<group>";
+		};
+		CB45993D1AEA67ED0043A978 /* Helper Class */ = {
+			isa = PBXGroup;
+			children = (
+				CB4599361AEA66590043A978 /* SwiftCoreDataHelper.h */,
+				CB4599371AEA66590043A978 /* SwiftCoreDataHelper.m */,
+			);
+			name = "Helper Class";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -240,10 +254,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB45990B1AEA642D0043A978 /* ViewController.swift in Sources */,
+				CB45993A1AEA67D80043A978 /* ListTableViewCell.swift in Sources */,
 				CB4599091AEA642D0043A978 /* BmobSync.xcdatamodeld in Sources */,
 				CB4599341AEA65DE0043A978 /* User.swift in Sources */,
 				CB4599301AEA65DD0043A978 /* News.swift in Sources */,
 				CB4599321AEA65DE0043A978 /* Company.swift in Sources */,
+				CB45993C1AEA67E60043A978 /* ListTableViewController.swift in Sources */,
 				CB4599381AEA66590043A978 /* SwiftCoreDataHelper.m in Sources */,
 				CB4599061AEA642D0043A978 /* AppDelegate.swift in Sources */,
 			);
