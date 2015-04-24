@@ -12,6 +12,16 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        
+        var NewsTimelineData:NSMutableArray = NSMutableArray()
+        
+        let moc:NSManagedObjectContext = SwiftCoreDataHelper.managedObjectContext()
+        var NewsTimeline:News = SwiftCoreDataHelper.insertManagedObjectOfClass(NSStringFromClass(News), inManagedObjectContext: moc)as! News
+        
+        
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
 

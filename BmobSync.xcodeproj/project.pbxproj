@@ -14,6 +14,10 @@
 		CB4599101AEA642D0043A978 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB45990F1AEA642D0043A978 /* Images.xcassets */; };
 		CB4599131AEA642D0043A978 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB4599111AEA642D0043A978 /* LaunchScreen.xib */; };
 		CB45991F1AEA642E0043A978 /* BmobSyncTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB45991E1AEA642E0043A978 /* BmobSyncTests.swift */; };
+		CB4599301AEA65DD0043A978 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB45992F1AEA65DD0043A978 /* News.swift */; };
+		CB4599321AEA65DE0043A978 /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4599311AEA65DE0043A978 /* Company.swift */; };
+		CB4599341AEA65DE0043A978 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4599331AEA65DE0043A978 /* User.swift */; };
+		CB4599381AEA66590043A978 /* SwiftCoreDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = CB4599371AEA66590043A978 /* SwiftCoreDataHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +42,12 @@
 		CB4599181AEA642E0043A978 /* BmobSyncTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BmobSyncTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB45991D1AEA642E0043A978 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CB45991E1AEA642E0043A978 /* BmobSyncTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BmobSyncTests.swift; sourceTree = "<group>"; };
+		CB45992F1AEA65DD0043A978 /* News.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
+		CB4599311AEA65DE0043A978 /* Company.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
+		CB4599331AEA65DE0043A978 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		CB4599351AEA66580043A978 /* BmobSync-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BmobSync-Bridging-Header.h"; sourceTree = "<group>"; };
+		CB4599361AEA66590043A978 /* SwiftCoreDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwiftCoreDataHelper.h; sourceTree = "<group>"; };
+		CB4599371AEA66590043A978 /* SwiftCoreDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwiftCoreDataHelper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,13 +89,16 @@
 		CB4599021AEA642D0043A978 /* BmobSync */ = {
 			isa = PBXGroup;
 			children = (
+				CB4599361AEA66590043A978 /* SwiftCoreDataHelper.h */,
+				CB4599371AEA66590043A978 /* SwiftCoreDataHelper.m */,
 				CB4599051AEA642D0043A978 /* AppDelegate.swift */,
 				CB45990A1AEA642D0043A978 /* ViewController.swift */,
 				CB45990C1AEA642D0043A978 /* Main.storyboard */,
 				CB45990F1AEA642D0043A978 /* Images.xcassets */,
 				CB4599111AEA642D0043A978 /* LaunchScreen.xib */,
-				CB4599071AEA642D0043A978 /* BmobSync.xcdatamodeld */,
+				CB45992E1AEA65870043A978 /* Data Model */,
 				CB4599031AEA642D0043A978 /* Supporting Files */,
+				CB4599351AEA66580043A978 /* BmobSync-Bridging-Header.h */,
 			);
 			path = BmobSync;
 			sourceTree = "<group>";
@@ -113,6 +126,17 @@
 				CB45991D1AEA642E0043A978 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CB45992E1AEA65870043A978 /* Data Model */ = {
+			isa = PBXGroup;
+			children = (
+				CB4599071AEA642D0043A978 /* BmobSync.xcdatamodeld */,
+				CB4599331AEA65DE0043A978 /* User.swift */,
+				CB4599311AEA65DE0043A978 /* Company.swift */,
+				CB45992F1AEA65DD0043A978 /* News.swift */,
+			);
+			name = "Data Model";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -217,6 +241,10 @@
 			files = (
 				CB45990B1AEA642D0043A978 /* ViewController.swift in Sources */,
 				CB4599091AEA642D0043A978 /* BmobSync.xcdatamodeld in Sources */,
+				CB4599341AEA65DE0043A978 /* User.swift in Sources */,
+				CB4599301AEA65DD0043A978 /* News.swift in Sources */,
+				CB4599321AEA65DE0043A978 /* Company.swift in Sources */,
+				CB4599381AEA66590043A978 /* SwiftCoreDataHelper.m in Sources */,
 				CB4599061AEA642D0043A978 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -344,9 +372,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = BmobSync/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "BmobSync/BmobSync-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -354,9 +385,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = BmobSync/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "BmobSync/BmobSync-Bridging-Header.h";
 			};
 			name = Release;
 		};
