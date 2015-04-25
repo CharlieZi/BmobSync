@@ -12,6 +12,7 @@ import UIKit
 
 
 class ListTableViewController: UITableViewController {
+    @IBOutlet var NewsTableView: UITableView!
     
     
     var NewsTimelineData:NSMutableArray = NSMutableArray()
@@ -29,7 +30,9 @@ class ListTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        
+        
     }
     
     
@@ -42,6 +45,8 @@ class ListTableViewController: UITableViewController {
         
         let results:NSArray = SwiftCoreDataHelper.fetchEntitiesForClass(NSStringFromClass(News), withPredicate: nil, inManagedObjectContext: moc)
         
+        
+        println(results.count)
         //load local data and initialization
         
         if results.count > 0 {
@@ -49,17 +54,27 @@ class ListTableViewController: UITableViewController {
                 let singleNews = item as! News
                 let timestamp:NSDate = singleNews.timestamp as NSDate
                 
-                let newsDict:NSDictionary = ["identifier":singleNews.identifier,"timestamp":timestamp,"content":singleNews.content]
+                let newsDict:NSDictionary = ["identifier":singleNews.identifier,"timestamp":timestamp,"content":singleNews.content,"author":singleNews.author]
+                
                 NewsTimelineData.addObject(newsDict)
                 lastsyncStamp = lastsyncStamp.laterDate(timestamp)
+                
             }
+            println(NewsTimelineData.count)
+            let dateDescriptor:NSSortDescriptor = NSSortDescriptor(key: "timestamp", ascending: false)
+            var sortedArray:NSArray = NewsTimelineData.sortedArrayUsingDescriptors([dateDescriptor])
+            
+            NewsTimelineData = NSMutableArray(array: sortedArray)
+            self.tableView.reloadData()
             
             
         }
         
-        var addNews:News = SwiftCoreDataHelper.insertManagedObjectOfClass(NSStringFromClass(News), inManagedObjectContext: moc) as! News
+        //load bmob online data
+        
+        var findNewsAuthor:BmobQuery = BmobQuery(className: "Company_News")
+        
         var findTimelineData:BmobQuery = BmobQuery(className: "Company_News")
-            
         findTimelineData.findObjectsInBackgroundWithBlock {
             (objects, error:NSError?) -> Void in
                 if error == nil {
@@ -68,105 +83,47 @@ class ListTableViewController: UITableViewController {
                         let downloadNews:BmobObject = object as! BmobObject
                         let timestamp:NSDate = downloadNews.createdAt as NSDate
                         
-//                        if (self.lastsyncStamp.laterDate(timestamp) == timestamp){
+                        // find new added news
+                        
+                        if (self.lastsyncStamp.compare(timestamp) == NSComparisonResult.OrderedAscending){
+                            var addNews:News = SwiftCoreDataHelper.insertManagedObjectOfClass(NSStringFromClass(News), inManagedObjectContext: moc) as! News
+                            
                             let identifier:String = downloadNews.objectId as String
                             let content:String = downloadNews.objectForKey("Content") as! String
                             
-                            addNews.identifier = identifier
-                            addNews.content = content
-                            addNews.timestamp = timestamp
+                            var author:String = String()
                             
-                            SwiftCoreDataHelper.saveManagedObjectContext(moc)
-                            
-                            let newsDict:NSDictionary = ["identifier":identifier,"timestamp":timestamp,"content":content]
-                            self.NewsTimelineData.addObject(newsDict)
-                            println(self.NewsTimelineData.count)
-                            println(content)
-//                        }
+                            var findUserName:BmobQuery = BmobUser.query()
+                            findUserName.whereKey("objectID" , equalTo:downloadNews.objectForKey("Company").objectID)
                         
+                            findUserName.findObjectsInBackgroundWithBlock { (objects, error:NSError!) -> Void in
+                                if error == nil {
+                                    let user:BmobUser = (objects as NSArray).lastObject as! BmobUser
+                                    author = user.objectForKey("username") as! String
+                                    addNews.author = author
+                                    addNews.identifier = identifier
+                                    addNews.content = content
+                                    addNews.timestamp = timestamp
+                                    
+                                    
+                                    SwiftCoreDataHelper.saveManagedObjectContext(moc)
+                                    
+                                    let newsDict:NSDictionary = ["identifier":identifier,"timestamp":timestamp,"content":content,"author":author]
+                                    
+                                    self.NewsTimelineData.addObject(newsDict)
+                                    let dateDescriptor:NSSortDescriptor = NSSortDescriptor(key: "timestamp", ascending: false)
+                                    var sortedArray:NSArray = self.NewsTimelineData.sortedArrayUsingDescriptors([dateDescriptor])
+                                    
+                                    self.NewsTimelineData = NSMutableArray(array: sortedArray)
+                                
+                                    self.tableView.reloadData()
+                                }
+                            }
+                        }
                     }
                 }
             }
         
-        println(self.NewsTimelineData.count)
-//        let dateDescriptor:NSSortDescriptor = NSSortDescriptor(key: "timestamp", ascending: false)
-//        var sortedArray:NSArray = NewsTimelineData.sortedArrayUsingDescriptors([dateDescriptor])
-        
-        
-        
-//        lastsyncStamp = sortedArray.firstObject?.objectForKey("timestamp") as! NSDate
-        
-        tableView.reloadData()
-        
-////            
-//            let dateDescriptor:NSSortDescriptor = NSSortDescriptor(key: "timestamp", ascending: false)
-//            var sortedArray:NSArray = NewsTimelineData.sortedArrayUsingDescriptors([dateDescriptor])
-////            
-//            
-//            lastsyncStamp = sortedArray.firstObject!.objectForKey("timestamp") as! NSDate
-            
-            
-        
-        
-        //load newly added online data
-        
-     /*
-        
-        var addNews:News = SwiftCoreDataHelper.insertManagedObjectOfClass(NSStringFromClass(News), inManagedObjectContext: moc) as! News
-        
-        var findTimelineData:BmobQuery = BmobQuery(className: "Company_News")
-        
-
-        
-        findTimelineData.findObjectsInBackgroundWithBlock {
-            (objects, error:NSError?) -> Void in
-            if error == nil {
-                for object in objects! {
-                    
-                    
-                    let downloadNews:BmobObject = object as! BmobObject
-
-                    let timestamp:NSDate = downloadNews.createdAt as NSDate
-                    
-                    if (self.lastsyncStamp.compare(timestamp) == NSComparisonResult.OrderedAscending){
-                        
-                        let identifier:String = downloadNews.objectId as String
-                        let content:String = downloadNews.objectForKey("Content") as! String
-                        
-                        
-                        addNews.identifier = identifier
-                        addNews.content = content
-                        addNews.timestamp = timestamp
-                        self.lastsyncStamp = timestamp
-                        
-                        
-                        SwiftCoreDataHelper.saveManagedObjectContext(moc)
-                        
-                        let newsDict:NSDictionary = ["identifier":identifier,"timestamp":timestamp,"content":content]
-                        
-                        self.NewsTimelineData.addObject(newsDict)
-                        
-                        
-                        
-                           
-                        
-                        
-
-                    }
-                    
-                }
-                
-                let dateDescriptor:NSSortDescriptor = NSSortDescriptor(key: "timestamp", ascending: false)
-                var sortedArray:NSArray = self.NewsTimelineData.sortedArrayUsingDescriptors([dateDescriptor])
-
-            }
-        }
-        
-        self.tableView.reloadData()
-*/
-        
-        
-
     }
     
     
@@ -220,19 +177,40 @@ class ListTableViewController: UITableViewController {
         // Configure the cell
         
         
+        cell.newsAuthor.alpha = 0
+        cell.newsTimestamp.alpha = 0
+        cell.newsTitle.alpha = 0
+        cell.newsContent.alpha = 0
         
-        cell.authorLabel.text = "test"
         
-        println(NewsTimelineData.count)
-        println("       adsfadsfadf")
+        var dateFormattor:NSDateFormatter = NSDateFormatter()
+        dateFormattor.dateFormat = "yyyy-mm-dd hh:mm:ss"
+
+        
+        
+        
         
         let itemDict:NSDictionary = NewsTimelineData.objectAtIndex(indexPath.row) as! NSDictionary
         
         let content = itemDict.objectForKey("content") as! String
+//        let title = itemDict.objectForKey("title") as! String
+        let timestamp = itemDict.objectForKey("timestamp") as! NSDate
+        let author = itemDict.objectForKey("author") as! String
+
         
+        cell.newsAuthor.text = author
+        cell.newsTimestamp.text = dateFormattor.stringFromDate(timestamp)
+        cell.newsTitle.text = "myNewsTitle"
+        cell.newsContent.text = content
         
-        cell.companyNewsTextView.text = content
+        UIView.animateWithDuration(0.5, animations: { () -> Void in
+            cell.newsAuthor.alpha = 1
+            cell.newsTimestamp.alpha = 1
+            cell.newsTitle.alpha = 1
+            cell.newsContent.alpha = 1
+            })
         
+
         
         
         
@@ -285,7 +263,42 @@ class ListTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+//    func loadUserName(BmobArrayName:NSString, BmobObjectname:BmobObject)->String{
+//        var userName:NSString = NSString()
+//        var findUserName:BmobQuery = BmobUser.query()
+//        
+//
+//        findUserName.whereKey("objectID" , equalTo:BmobObjectname.objectForKey(BmobArrayName).objectID)
+//        
+//        findUserName.findObjectsInBackgroundWithBlock { (objects, error:NSError!) -> Void in
+//            if error == nil {
+//                let user:BmobUser = (objects as NSArray).lastObject as! BmobUser
+//                userName = user.objectForKey("username") as! String
+//                
+//            }
+//        }
+//        println("i am"+(userName as String))
+//        return userName as String
+//    }
+    
+    
+    
     @IBAction func refreshBtnClicked(sender: AnyObject) {
+        
+        
+        let moc:NSManagedObjectContext = SwiftCoreDataHelper.managedObjectContext()
+        let resultstoDelete:NSArray = SwiftCoreDataHelper.fetchEntitiesForClass(NSStringFromClass(News), withPredicate: nil, inManagedObjectContext: moc)
+        
+        for item in resultstoDelete {
+            let singleitemtoDelete:News = item as! News
+            
+            singleitemtoDelete.managedObjectContext?.deleteObject(singleitemtoDelete)
+            SwiftCoreDataHelper.saveManagedObjectContext(moc)
+        }
+        
+        
+        
         
         loadData()
         self.tableView.reloadData()

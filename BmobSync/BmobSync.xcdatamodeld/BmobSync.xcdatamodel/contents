@@ -5,6 +5,7 @@
         <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="News" representedClassName="News" syncable="YES">
+        <attribute name="author" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="timestamp" optional="YES" attributeType="Date" syncable="YES"/>
@@ -15,7 +16,7 @@
     </entity>
     <elements>
         <element name="Company" positionX="0" positionY="45" width="128" height="75"/>
-        <element name="News" positionX="-36" positionY="9" width="128" height="90"/>
+        <element name="News" positionX="-36" positionY="9" width="128" height="105"/>
         <element name="User" positionX="27" positionY="72" width="128" height="75"/>
     </elements>
 </model>
