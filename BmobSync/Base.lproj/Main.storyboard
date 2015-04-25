@@ -27,10 +27,18 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="PSn-GN-39v">
+                                            <rect key="frame" x="23" y="67" width="240" height="128"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        </textView>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="authorLabel" destination="E6c-yW-qYy" id="4LO-TM-ySx"/>
+                                    <outlet property="companyNewsTextView" destination="PSn-GN-39v" id="NK2-L6-cVL"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -39,7 +47,13 @@
                             <outlet property="delegate" destination="Gde-LA-BOj" id="akO-iE-FsV"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Unm-Cd-oNI"/>
+                    <navigationItem key="navigationItem" id="Unm-Cd-oNI">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="IFV-aW-WyC">
+                            <connections>
+                                <action selector="refreshBtnClicked:" destination="Gde-LA-BOj" id="Ap0-64-DkJ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NI5-3I-3tj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

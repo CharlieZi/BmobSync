@@ -20,6 +20,12 @@
 		CB4599381AEA66590043A978 /* SwiftCoreDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = CB4599371AEA66590043A978 /* SwiftCoreDataHelper.m */; };
 		CB45993A1AEA67D80043A978 /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4599391AEA67D80043A978 /* ListTableViewCell.swift */; };
 		CB45993C1AEA67E60043A978 /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB45993B1AEA67E60043A978 /* ListTableViewController.swift */; };
+		CBAC7F0E1AEAA85F008169AE /* BmobSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBAC7F0D1AEAA85F008169AE /* BmobSDK.framework */; };
+		CBAC7F101AEAA88F008169AE /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBAC7F0F1AEAA88F008169AE /* CoreFoundation.framework */; };
+		CBAC7F121AEAA897008169AE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBAC7F111AEAA897008169AE /* Foundation.framework */; };
+		CBAC7F141AEAA8A1008169AE /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CBAC7F131AEAA8A1008169AE /* libz.1.2.5.dylib */; };
+		CBAC7F161AEAA8D9008169AE /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CBAC7F151AEAA8D9008169AE /* libsqlite3.dylib */; };
+		CBAC7F181AEAA8E3008169AE /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CBAC7F171AEAA8E3008169AE /* libicucore.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +58,12 @@
 		CB4599371AEA66590043A978 /* SwiftCoreDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwiftCoreDataHelper.m; sourceTree = "<group>"; };
 		CB4599391AEA67D80043A978 /* ListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
 		CB45993B1AEA67E60043A978 /* ListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTableViewController.swift; sourceTree = "<group>"; };
+		CBAC7F0D1AEAA85F008169AE /* BmobSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BmobSDK.framework; sourceTree = "<group>"; };
+		CBAC7F0F1AEAA88F008169AE /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		CBAC7F111AEAA897008169AE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		CBAC7F131AEAA8A1008169AE /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
+		CBAC7F151AEAA8D9008169AE /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		CBAC7F171AEAA8E3008169AE /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +71,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CBAC7F181AEAA8E3008169AE /* libicucore.dylib in Frameworks */,
+				CBAC7F161AEAA8D9008169AE /* libsqlite3.dylib in Frameworks */,
+				CBAC7F141AEAA8A1008169AE /* libz.1.2.5.dylib in Frameworks */,
+				CBAC7F121AEAA897008169AE /* Foundation.framework in Frameworks */,
+				CBAC7F101AEAA88F008169AE /* CoreFoundation.framework in Frameworks */,
+				CBAC7F0E1AEAA85F008169AE /* BmobSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,6 +129,12 @@
 		CB4599031AEA642D0043A978 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CBAC7F171AEAA8E3008169AE /* libicucore.dylib */,
+				CBAC7F151AEAA8D9008169AE /* libsqlite3.dylib */,
+				CBAC7F131AEAA8A1008169AE /* libz.1.2.5.dylib */,
+				CBAC7F111AEAA897008169AE /* Foundation.framework */,
+				CBAC7F0F1AEAA88F008169AE /* CoreFoundation.framework */,
+				CBAC7F0D1AEAA85F008169AE /* BmobSDK.framework */,
 				CB4599041AEA642D0043A978 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -389,6 +413,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/BmobSync",
+				);
 				INFOPLIST_FILE = BmobSync/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -402,6 +430,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/BmobSync",
+				);
 				INFOPLIST_FILE = BmobSync/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -462,6 +494,7 @@
 				CB4599241AEA642E0043A978 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CB4599251AEA642E0043A978 /* Build configuration list for PBXNativeTarget "BmobSyncTests" */ = {
 			isa = XCConfigurationList;
@@ -470,6 +503,7 @@
 				CB4599271AEA642E0043A978 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

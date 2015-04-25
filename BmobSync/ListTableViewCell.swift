@@ -12,6 +12,7 @@ class ListTableViewCell: UITableViewCell {
 
     @IBOutlet weak var authorLabel: UILabel!
     
+    @IBOutlet weak var companyNewsTextView: UITextView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

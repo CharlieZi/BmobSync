@@ -14,5 +14,6 @@ class News: NSManagedObject {
 
     @NSManaged var identifier: String
     @NSManaged var content: String
+    @NSManaged var timestamp: NSDate
 
 }

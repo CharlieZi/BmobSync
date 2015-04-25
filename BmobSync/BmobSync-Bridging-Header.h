@@ -3,3 +3,4 @@
 //
 
 #import "SwiftCoreDataHelper.h"
+#import <BmobSDK/Bmob.h>
