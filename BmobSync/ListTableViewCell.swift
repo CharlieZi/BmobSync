@@ -11,11 +11,18 @@ import UIKit
 class ListTableViewCell: UITableViewCell {
 
     
+    @IBOutlet weak var CellUIView: UIView!
     
     @IBOutlet weak var newsTitle: UILabel!
     @IBOutlet weak var newsContent: UITextView!
     @IBOutlet weak var newsAuthor: UILabel!
     @IBOutlet weak var newsTimestamp: UILabel!
+    
+    
+    
+    
+    
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()

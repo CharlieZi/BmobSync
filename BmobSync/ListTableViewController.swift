@@ -31,11 +31,92 @@ class ListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        var refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: Selector("refreshData"), forControlEvents: UIControlEvents.ValueChanged)
+        
+        self.refreshControl = refreshControl
+        
         
         
     }
     
-    
+    func refreshData(){
+        //load bmob online data
+        let moc:NSManagedObjectContext = SwiftCoreDataHelper.managedObjectContext()
+        let results:NSArray = SwiftCoreDataHelper.fetchEntitiesForClass(NSStringFromClass(News), withPredicate: nil, inManagedObjectContext: moc)
+        
+        
+        for item in results {
+            let singleNews = item as! News
+            let timestamp:NSDate = singleNews.timestamp as NSDate
+            lastsyncStamp = lastsyncStamp.laterDate(timestamp)
+        }
+
+        
+        var findNewsAuthor:BmobQuery = BmobQuery(className: "Company_News")
+        
+        var findTimelineData:BmobQuery = BmobQuery(className: "Company_News")
+        findTimelineData.findObjectsInBackgroundWithBlock {
+            (objects, error:NSError?) -> Void in
+            if error == nil {
+                for object in objects! {
+                    
+                    let downloadNews:BmobObject = object as! BmobObject
+                    let timestamp:NSDate = downloadNews.createdAt as NSDate
+                    
+                    // find new added news
+                    var dateFormattor:NSDateFormatter = NSDateFormatter()
+                    dateFormattor.dateFormat = "yyyy-MM-dd hh:mm:ss"
+                    println(dateFormattor.stringFromDate(self.lastsyncStamp)+"refresh")
+                    
+                    if (self.lastsyncStamp.compare(timestamp) == NSComparisonResult.OrderedAscending){
+                        
+                        
+                        println("tset")
+                        var addNews:News = SwiftCoreDataHelper.insertManagedObjectOfClass(NSStringFromClass(News), inManagedObjectContext: moc) as! News
+                        
+                        let identifier:String = downloadNews.objectId as String
+                        let content:String = downloadNews.objectForKey("Content") as! String
+                        
+                        var author:String = String()
+                        
+                        var findUserName:BmobQuery = BmobUser.query()
+                        findUserName.whereKey("objectID" , equalTo:downloadNews.objectForKey("Company").objectID)
+                        
+                        findUserName.findObjectsInBackgroundWithBlock { (objects, error:NSError!) -> Void in
+                            if error == nil {
+                                let user:BmobUser = (objects as NSArray).lastObject as! BmobUser
+                                author = user.objectForKey("username") as! String
+                                addNews.author = author
+                                addNews.identifier = identifier
+                                addNews.content = content
+                                addNews.timestamp = timestamp
+                                
+                                
+                                SwiftCoreDataHelper.saveManagedObjectContext(moc)
+                                
+                                let newsDict:NSDictionary = ["identifier":identifier,"timestamp":timestamp,"content":content,"author":author]
+                                
+                                self.NewsTimelineData.addObject(newsDict)
+                                let dateDescriptor:NSSortDescriptor = NSSortDescriptor(key: "timestamp", ascending: false)
+                                var sortedArray:NSArray = self.NewsTimelineData.sortedArrayUsingDescriptors([dateDescriptor])
+                                
+                                self.NewsTimelineData = NSMutableArray(array: sortedArray)
+                                
+                                self.tableView.reloadData()
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+        
+        self.tableView.reloadData()
+        refreshControl?.endRefreshing()
+        
+    }
+     
     func loadData(){
         
         NewsTimelineData.removeAllObjects()
@@ -73,11 +154,11 @@ class ListTableViewController: UITableViewController {
         //load bmob online data
         
         var findNewsAuthor:BmobQuery = BmobQuery(className: "Company_News")
-        
         var findTimelineData:BmobQuery = BmobQuery(className: "Company_News")
         findTimelineData.findObjectsInBackgroundWithBlock {
             (objects, error:NSError?) -> Void in
                 if error == nil {
+                    
                     for object in objects! {
                         
                         let downloadNews:BmobObject = object as! BmobObject
@@ -117,13 +198,14 @@ class ListTableViewController: UITableViewController {
                                     self.NewsTimelineData = NSMutableArray(array: sortedArray)
                                 
                                     self.tableView.reloadData()
+                                    
                                 }
                             }
                         }
                     }
+
                 }
             }
-        
     }
     
     
@@ -182,9 +264,20 @@ class ListTableViewController: UITableViewController {
         cell.newsTitle.alpha = 0
         cell.newsContent.alpha = 0
         
+        cell.CellUIView.alpha = 0
+        
+        cell.CellUIView.layer.cornerRadius = 0.2
+        cell.CellUIView.layer.masksToBounds = false
+        cell.CellUIView.layer.shadowColor = UIColor.blackColor().CGColor
+        cell.CellUIView.layer.shadowOffset = CGSize(width: 0, height: 3);
+        cell.CellUIView.layer.shadowOpacity = 0.2
+        
+        
+        
+        
         
         var dateFormattor:NSDateFormatter = NSDateFormatter()
-        dateFormattor.dateFormat = "yyyy-mm-dd hh:mm:ss"
+        dateFormattor.dateFormat = "yyyy-MM-dd hh:mm:ss"
 
         
         
@@ -208,8 +301,19 @@ class ListTableViewController: UITableViewController {
             cell.newsTimestamp.alpha = 1
             cell.newsTitle.alpha = 1
             cell.newsContent.alpha = 1
+            
+            cell.CellUIView.alpha = 1
+            
+            cell.CellUIView.layer.cornerRadius = 0.5
+            cell.CellUIView.layer.masksToBounds = false
+            cell.CellUIView.layer.shadowColor = UIColor.blackColor().CGColor
+            cell.CellUIView.layer.shadowOffset = CGSize(width: 0, height: 3);
+            cell.CellUIView.layer.shadowOpacity = 0.5
+            
+            
             })
         
+
 
         
         
